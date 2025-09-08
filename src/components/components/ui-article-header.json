@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_components_ui_article_headers",
+  "info": {
+    "displayName": "UiArticleHeader"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

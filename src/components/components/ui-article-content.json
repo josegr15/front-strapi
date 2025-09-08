@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_components_ui_article_contents",
+  "info": {
+    "displayName": "UiArticleContent"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

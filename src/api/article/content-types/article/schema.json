@@ -29,6 +29,13 @@
         "videos",
         "audios"
       ]
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "components.ui-article-header",
+        "components.ui-article-content"
+      ]
     }
   }
 }
