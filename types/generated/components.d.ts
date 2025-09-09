@@ -20,11 +20,22 @@ export interface ComponentsUiArticleHeader extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsUiGuideDetails extends Struct.ComponentSchema {
+  collectionName: 'components_components_ui_guide_details';
+  info: {
+    displayName: 'UiGuideDetails';
+  };
+  attributes: {
+    Title: Schema.Attribute.String;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'components.ui-article-content': ComponentsUiArticleContent;
       'components.ui-article-header': ComponentsUiArticleHeader;
+      'components.ui-guide-details': ComponentsUiGuideDetails;
     }
   }
 }

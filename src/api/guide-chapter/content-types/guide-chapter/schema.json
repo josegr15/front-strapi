@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guide_chapters",
+  "info": {
+    "singularName": "guide-chapter",
+    "pluralName": "guide-chapters",
+    "displayName": "Guide Chapter"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "chapterName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "guide_pages": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::guide-page.guide-page",
+      "inversedBy": "guide_chapters"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "guide_pages",
+  "info": {
+    "singularName": "guide-page",
+    "pluralName": "guide-pages",
+    "displayName": "Guide Page"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "publishedDate": {
+      "type": "date"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "components.ui-guide-details"
+      ]
+    },
+    "guide_chapters": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::guide-chapter.guide-chapter",
+      "mappedBy": "guide_pages"
+    }
+  }
+}

@@ -407,6 +407,78 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiGuideChapterGuideChapter
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'guide_chapters';
+  info: {
+    displayName: 'Guide Chapter';
+    pluralName: 'guide-chapters';
+    singularName: 'guide-chapter';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    chapterName: Schema.Attribute.String;
+    content: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    guide_pages: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::guide-page.guide-page'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::guide-chapter.guide-chapter'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiGuidePageGuidePage extends Struct.CollectionTypeSchema {
+  collectionName: 'guide_pages';
+  info: {
+    displayName: 'Guide Page';
+    pluralName: 'guide-pages';
+    singularName: 'guide-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    components: Schema.Attribute.DynamicZone<['components.ui-guide-details']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Blocks;
+    guide_chapters: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::guide-chapter.guide-chapter'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::guide-page.guide-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    publishedDate: Schema.Attribute.Date;
+    slug: Schema.Attribute.UID<'title'> & Schema.Attribute.Required;
+    summary: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -917,6 +989,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::article.article': ApiArticleArticle;
+      'api::guide-chapter.guide-chapter': ApiGuideChapterGuideChapter;
+      'api::guide-page.guide-page': ApiGuidePageGuidePage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

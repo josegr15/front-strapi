@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_components_ui_guide_details",
+  "info": {
+    "displayName": "UiGuideDetails"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
